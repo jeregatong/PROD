@@ -1,0 +1,54 @@
+package com.demo.bootcamp.data.service.bootcamp.data.service.dto;
+
+public class ImageDto {
+
+	private String imageId;
+
+	private long imageAccountNumber;
+
+	private long imageApplicationNumber;
+
+	private String imageCustomerNumber;
+
+	private int bankNumber;
+
+	public String getImageId() {
+		return imageId;
+	}
+
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+	}
+
+	public long getImageAccountNumber() {
+		return imageAccountNumber;
+	}
+
+	public void setImageAccountNumber(long imageAccountNumber) {
+		this.imageAccountNumber = imageAccountNumber;
+	}
+
+	public long getImageApplicationNumber() {
+		return imageApplicationNumber;
+	}
+
+	public void setImageApplicationNumber(long imageApplicationNumber) {
+		this.imageApplicationNumber = imageApplicationNumber;
+	}
+
+	public String getImageCustomerNumber() {
+		return imageCustomerNumber;
+	}
+
+	public void setImageCustomerNumber(String imageCustomerNumber) {
+		this.imageCustomerNumber = imageCustomerNumber;
+	}
+
+	public int getBankNumber() {
+		return bankNumber;
+	}
+
+	public void setBankNumber(int bankNumber) {
+		this.bankNumber = bankNumber;
+	}
+}

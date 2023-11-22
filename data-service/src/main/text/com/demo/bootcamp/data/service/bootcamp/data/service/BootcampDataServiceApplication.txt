@@ -1,0 +1,13 @@
+package com.demo.bootcamp.data.service.bootcamp.data.service;
+
+import org.springframework.boot.SpringApplication;
+import org.springframework.boot.autoconfigure.SpringBootApplication;
+
+@SpringBootApplication
+public class BootcampDataServiceApplication {
+
+	public static void main(String[] args) {
+		SpringApplication.run(BootcampDataServiceApplication.class, args);
+	}
+
+}

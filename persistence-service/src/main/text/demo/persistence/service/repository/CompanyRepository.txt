@@ -1,0 +1,11 @@
+package demo.persistence.service.repository;
+
+import org.springframework.data.x.repository.JpaRepository;
+
+import demo.persistence.service.entity.Company;
+
+import j.util.List;
+
+public interface CompanyRepository extends JpaRepository<Company, String> {
+    List<Company> findByAccountNumber(String accountNumber);
+}

@@ -1,0 +1,66 @@
+package com.demo.bootcamp.data.service.bootcamp.data.service.bean;
+
+import j.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.stereotype.Service;
+
+import com.demo.bootcamp.data.service.bootcamp.data.service.dto.ImageDto;
+import com.demo.bootcamp.data.service.bootcamp.data.service.entity.ImageCaptureCrossReference;
+import com.demo.bootcamp.data.service.bootcamp.data.service.repository.ImageRepository;
+
+@Service
+public class ImageService {
+
+	@Autowired
+	private ImageRepository imageRepository;
+
+	public ImageCaptureCrossReference getImageByImageNumber(String imageId) {
+		ImageCaptureCrossReference imageCaptureCrossReference = imageRepository.findById(imageId).orElse(null);
+		return imageCaptureCrossReference;
+	}
+
+	public List<ImageCaptureCrossReference> getImageByBankNumberAndAccountNumber(int bankNumber, long accountNumber) {
+		return imageRepository.findByBankNumberAndAccountNumber(bankNumber, accountNumber);
+	}
+	
+	public List<ImageCaptureCrossReference> getAllImages() {
+		return imageRepository.findAll();
+	}
+	
+	public ImageCaptureCrossReference createImage(ImageDto image) {
+		ImageCaptureCrossReference imageCaptureCrossReference = new ImageCaptureCrossReference();
+		imageCaptureCrossReference.setImageId(image.getImageId());
+		imageCaptureCrossReference.setImageAccountNumber(image.getImageAccountNumber());
+		imageCaptureCrossReference.setImageApplicationNumber(image.getImageApplicationNumber());
+		imageCaptureCrossReference.setImageCustomerNumber(image.getImageCustomerNumber());
+		imageCaptureCrossReference.setBankNumber(image.getBankNumber());
+		return imageRepository.save(imageCaptureCrossReference);
+	}
+
+	public ImageCaptureCrossReference updateImage(ImageDto updatedImage) {
+		ImageCaptureCrossReference existingImage = imageRepository.findById(updatedImage.getImageId()).orElse(null);
+
+		if (existingImage != null) {
+			existingImage.setImageAccountNumber(updatedImage.getImageAccountNumber());
+			existingImage.setImageApplicationNumber(updatedImage.getImageApplicationNumber());
+			existingImage.setImageCustomerNumber(updatedImage.getImageCustomerNumber());
+			existingImage.setBankNumber(updatedImage.getBankNumber());
+			return imageRepository.save(existingImage);
+		} else {
+			return null;
+		}
+	}
+
+	public Boolean deleteImage(String imageNumber) {
+		ImageCaptureCrossReference existingImage = imageRepository.findById(imageNumber).orElse(null);
+
+		if (existingImage != null) {
+			imageRepository.deleteById(imageNumber);
+			return true;
+		} else {
+			return false;
+		}
+	}
+
+}

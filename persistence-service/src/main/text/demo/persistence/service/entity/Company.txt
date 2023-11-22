@@ -1,0 +1,456 @@
+package demo.persistence.service.entity;
+
+import j.math.BigDecimal;
+
+import bali.persistence.Column;
+import bali.persistence.Entity;
+import bali.persistence.Id;
+import bali.persistence.Table;
+
+@Entity
+@Table(name = "Company", schema = "dbo")
+public class Company {
+
+    @Column(name = "BankNumber")
+    private BigDecimal bankNumber;
+
+    @Column(name = "CompanyCode")
+    private String companyCode;
+
+    @Column(name = "CompanyName")
+    private String companyName;
+
+    @Column(name = "CompanyShortName")
+    private String companyShortName;
+
+    @Column(name = "CompanySequence")
+    private BigDecimal companySequence;
+
+    @Column(name = "ReferenceField")
+    private String referenceField;
+
+    @Column(name = "FieldLength")
+    private BigDecimal fieldLength;
+
+    @Column(name = "FieldType")
+    private String fieldType;
+
+    @Column(name = "ValidationRule")
+    private String validationRule;
+
+    @Column(name = "SecondaryReferenceFlag")
+    private String secondaryReferenceFlag;
+
+    @Column(name = "SecondaryValidationRule")
+    private String secondaryValidationRule;
+
+    @Column(name = "SecondaryReferenceField")
+    private String secondaryReferenceField;
+
+    @Column(name = "SecondaryReferenceFieldLength")
+    private BigDecimal secondaryReferenceFieldLength;
+
+    @Column(name = "SecondaryReferenceFieldType")
+    private String secondaryReferenceFieldType;
+
+    @Column(name = "AccountType")
+    private BigDecimal accountType;
+
+    @Id
+    @Column(name = "AccountNumber")
+    private String accountNumber;
+
+    @Column(name = "IPAddress")
+    private String ipAddress;
+
+    @Column(name = "DestinationFolder")
+    private String destinationFolder;
+
+    @Column(name = "RefOneFieldLengthMin")
+    private BigDecimal refOneFieldLengthMin;
+
+    @Column(name = "RefTwoFieldLengthMin")
+    private BigDecimal refTwoFieldLengthMin;
+
+    @Column(name = "RefThreeFlag")
+    private String refThreeFlag;
+
+    @Column(name = "RefThreeField")
+    private String refThreeField;
+
+    @Column(name = "RefThreeFieldLengthMin")
+    private BigDecimal refThreeFieldLengthMin;
+
+    @Column(name = "RefThreeFieldLengthMax")
+    private BigDecimal refThreeFieldLengthMax;
+
+    @Column(name = "RefThreeFieldType")
+    private String refThreeFieldType;
+
+    @Column(name = "RefThreeValidationRule")
+    private String refThreeValidationRule;
+
+    @Column(name = "RefFourFlag")
+    private String refFourFlag;
+
+    @Column(name = "RefFourField")
+    private String refFourField;
+
+    @Column(name = "RefFourFieldLengthMin")
+    private BigDecimal refFourFieldLengthMin;
+
+    @Column(name = "RefFourFieldLengthMax")
+    private BigDecimal refFourFieldLengthMax;
+
+    @Column(name = "RefFourFieldType")
+    private String refFourFieldType;
+
+    @Column(name = "RefFourValidationRule")
+    private String refFourValidationRule;
+
+    @Column(name = "RefFiveFlag")
+    private String refFiveFlag;
+
+    @Column(name = "RefFiveField")
+    private String refFiveField;
+
+    @Column(name = "RefFiveFieldLengthMin")
+    private BigDecimal refFiveFieldLengthMin;
+
+    @Column(name = "RefFiveFieldLengthMax")
+    private BigDecimal refFiveFieldLengthMax;
+
+    @Column(name = "RefFiveFieldType")
+    private String refFiveFieldType;
+
+    @Column(name = "RefFiveValidationRule")
+    private String refFiveValidationRule;
+
+    @Column(name = "ServiceFeeAmount")
+    private BigDecimal serviceFeeAmount;
+
+    @Column(name = "ServiceFeeIndexNo")
+    private BigDecimal serviceFeeIndexNo;
+
+	public BigDecimal getBankNumber() {
+		return bankNumber;
+	}
+
+	public void setBankNumber(BigDecimal bankNumber) {
+		this.bankNumber = bankNumber;
+	}
+
+	public String getCompanyCode() {
+		return companyCode;
+	}
+
+	public void setCompanyCode(String companyCode) {
+		this.companyCode = companyCode;
+	}
+
+	public String getCompanyName() {
+		return companyName;
+	}
+
+	public void setCompanyName(String companyName) {
+		this.companyName = companyName;
+	}
+
+	public String getCompanyShortName() {
+		return companyShortName;
+	}
+
+	public void setCompanyShortName(String companyShortName) {
+		this.companyShortName = companyShortName;
+	}
+
+	public BigDecimal getCompanySequence() {
+		return companySequence;
+	}
+
+	public void setCompanySequence(BigDecimal companySequence) {
+		this.companySequence = companySequence;
+	}
+
+	public String getReferenceField() {
+		return referenceField;
+	}
+
+	public void setReferenceField(String referenceField) {
+		this.referenceField = referenceField;
+	}
+
+	public BigDecimal getFieldLength() {
+		return fieldLength;
+	}
+
+	public void setFieldLength(BigDecimal fieldLength) {
+		this.fieldLength = fieldLength;
+	}
+
+	public String getFieldType() {
+		return fieldType;
+	}
+
+	public void setFieldType(String fieldType) {
+		this.fieldType = fieldType;
+	}
+
+	public String getValidationRule() {
+		return validationRule;
+	}
+
+	public void setValidationRule(String validationRule) {
+		this.validationRule = validationRule;
+	}
+
+	public String getSecondaryReferenceFlag() {
+		return secondaryReferenceFlag;
+	}
+
+	public void setSecondaryReferenceFlag(String secondaryReferenceFlag) {
+		this.secondaryReferenceFlag = secondaryReferenceFlag;
+	}
+
+	public String getSecondaryValidationRule() {
+		return secondaryValidationRule;
+	}
+
+	public void setSecondaryValidationRule(String secondaryValidationRule) {
+		this.secondaryValidationRule = secondaryValidationRule;
+	}
+
+	public String getSecondaryReferenceField() {
+		return secondaryReferenceField;
+	}
+
+	public void setSecondaryReferenceField(String secondaryReferenceField) {
+		this.secondaryReferenceField = secondaryReferenceField;
+	}
+
+	public BigDecimal getSecondaryReferenceFieldLength() {
+		return secondaryReferenceFieldLength;
+	}
+
+	public void setSecondaryReferenceFieldLength(BigDecimal secondaryReferenceFieldLength) {
+		this.secondaryReferenceFieldLength = secondaryReferenceFieldLength;
+	}
+
+	public String getSecondaryReferenceFieldType() {
+		return secondaryReferenceFieldType;
+	}
+
+	public void setSecondaryReferenceFieldType(String secondaryReferenceFieldType) {
+		this.secondaryReferenceFieldType = secondaryReferenceFieldType;
+	}
+
+	public BigDecimal getAccountType() {
+		return accountType;
+	}
+
+	public void setAccountType(BigDecimal accountType) {
+		this.accountType = accountType;
+	}
+
+	public String getAccountNumber() {
+		return accountNumber;
+	}
+
+	public void setAccountNumber(String accountNumber) {
+		this.accountNumber = accountNumber;
+	}
+
+	public String getIpAddress() {
+		return ipAddress;
+	}
+
+	public void setIpAddress(String ipAddress) {
+		this.ipAddress = ipAddress;
+	}
+
+	public String getDestinationFolder() {
+		return destinationFolder;
+	}
+
+	public void setDestinationFolder(String destinationFolder) {
+		this.destinationFolder = destinationFolder;
+	}
+
+	public BigDecimal getRefOneFieldLengthMin() {
+		return refOneFieldLengthMin;
+	}
+
+	public void setRefOneFieldLengthMin(BigDecimal refOneFieldLengthMin) {
+		this.refOneFieldLengthMin = refOneFieldLengthMin;
+	}
+
+	public BigDecimal getRefTwoFieldLengthMin() {
+		return refTwoFieldLengthMin;
+	}
+
+	public void setRefTwoFieldLengthMin(BigDecimal refTwoFieldLengthMin) {
+		this.refTwoFieldLengthMin = refTwoFieldLengthMin;
+	}
+
+	public String getRefThreeFlag() {
+		return refThreeFlag;
+	}
+
+	public void setRefThreeFlag(String refThreeFlag) {
+		this.refThreeFlag = refThreeFlag;
+	}
+
+	public String getRefThreeField() {
+		return refThreeField;
+	}
+
+	public void setRefThreeField(String refThreeField) {
+		this.refThreeField = refThreeField;
+	}
+
+	public BigDecimal getRefThreeFieldLengthMin() {
+		return refThreeFieldLengthMin;
+	}
+
+	public void setRefThreeFieldLengthMin(BigDecimal refThreeFieldLengthMin) {
+		this.refThreeFieldLengthMin = refThreeFieldLengthMin;
+	}
+
+	public BigDecimal getRefThreeFieldLengthMax() {
+		return refThreeFieldLengthMax;
+	}
+
+	public void setRefThreeFieldLengthMax(BigDecimal refThreeFieldLengthMax) {
+		this.refThreeFieldLengthMax = refThreeFieldLengthMax;
+	}
+
+	public String getRefThreeFieldType() {
+		return refThreeFieldType;
+	}
+
+	public void setRefThreeFieldType(String refThreeFieldType) {
+		this.refThreeFieldType = refThreeFieldType;
+	}
+
+	public String getRefThreeValidationRule() {
+		return refThreeValidationRule;
+	}
+
+	public void setRefThreeValidationRule(String refThreeValidationRule) {
+		this.refThreeValidationRule = refThreeValidationRule;
+	}
+
+	public String getRefFourFlag() {
+		return refFourFlag;
+	}
+
+	public void setRefFourFlag(String refFourFlag) {
+		this.refFourFlag = refFourFlag;
+	}
+
+	public String getRefFourField() {
+		return refFourField;
+	}
+
+	public void setRefFourField(String refFourField) {
+		this.refFourField = refFourField;
+	}
+
+	public BigDecimal getRefFourFieldLengthMin() {
+		return refFourFieldLengthMin;
+	}
+
+	public void setRefFourFieldLengthMin(BigDecimal refFourFieldLengthMin) {
+		this.refFourFieldLengthMin = refFourFieldLengthMin;
+	}
+
+	public BigDecimal getRefFourFieldLengthMax() {
+		return refFourFieldLengthMax;
+	}
+
+	public void setRefFourFieldLengthMax(BigDecimal refFourFieldLengthMax) {
+		this.refFourFieldLengthMax = refFourFieldLengthMax;
+	}
+
+	public String getRefFourFieldType() {
+		return refFourFieldType;
+	}
+
+	public void setRefFourFieldType(String refFourFieldType) {
+		this.refFourFieldType = refFourFieldType;
+	}
+
+	public String getRefFourValidationRule() {
+		return refFourValidationRule;
+	}
+
+	public void setRefFourValidationRule(String refFourValidationRule) {
+		this.refFourValidationRule = refFourValidationRule;
+	}
+
+	public String getRefFiveFlag() {
+		return refFiveFlag;
+	}
+
+	public void setRefFiveFlag(String refFiveFlag) {
+		this.refFiveFlag = refFiveFlag;
+	}
+
+	public String getRefFiveField() {
+		return refFiveField;
+	}
+
+	public void setRefFiveField(String refFiveField) {
+		this.refFiveField = refFiveField;
+	}
+
+	public BigDecimal getRefFiveFieldLengthMin() {
+		return refFiveFieldLengthMin;
+	}
+
+	public void setRefFiveFieldLengthMin(BigDecimal refFiveFieldLengthMin) {
+		this.refFiveFieldLengthMin = refFiveFieldLengthMin;
+	}
+
+	public BigDecimal getRefFiveFieldLengthMax() {
+		return refFiveFieldLengthMax;
+	}
+
+	public void setRefFiveFieldLengthMax(BigDecimal refFiveFieldLengthMax) {
+		this.refFiveFieldLengthMax = refFiveFieldLengthMax;
+	}
+
+	public String getRefFiveFieldType() {
+		return refFiveFieldType;
+	}
+
+	public void setRefFiveFieldType(String refFiveFieldType) {
+		this.refFiveFieldType = refFiveFieldType;
+	}
+
+	public String getRefFiveValidationRule() {
+		return refFiveValidationRule;
+	}
+
+	public void setRefFiveValidationRule(String refFiveValidationRule) {
+		this.refFiveValidationRule = refFiveValidationRule;
+	}
+
+	public BigDecimal getServiceFeeAmount() {
+		return serviceFeeAmount;
+	}
+
+	public void setServiceFeeAmount(BigDecimal serviceFeeAmount) {
+		this.serviceFeeAmount = serviceFeeAmount;
+	}
+
+	public BigDecimal getServiceFeeIndexNo() {
+		return serviceFeeIndexNo;
+	}
+
+	public void setServiceFeeIndexNo(BigDecimal serviceFeeIndexNo) {
+		this.serviceFeeIndexNo = serviceFeeIndexNo;
+	}
+    
+    
+}

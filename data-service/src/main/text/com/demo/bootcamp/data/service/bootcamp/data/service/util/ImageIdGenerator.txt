@@ -1,0 +1,14 @@
+package com.demo.bootcamp.data.service.bootcamp.data.service.util;
+
+import j.time.ZonedDateTime;
+import j.time.format.DateTimeFormatter;
+
+public class ImageIdGenerator {
+
+    public static String generateNewImageId() {
+        DateTimeFormatter formatter = DateTimeFormatter.ofPattern("yyyyMMddHHmmssSSS");
+        ZonedDateTime gmtPlus8 = ZonedDateTime.now(j.time.ZoneId.of("GMT+8"));
+        String formattedDateTime = gmtPlus8.format(formatter);
+        return formattedDateTime;
+    }
+}

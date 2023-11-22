@@ -1,0 +1,66 @@
+package demo.persistence.service.entrypoint;
+
+import org.modelmapper.ModelMapper;
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
+
+import demo.persistence.service.dto.CompanyDto;
+import demo.persistence.service.entity.Company;
+import demo.persistence.service.exceptions.ResourceNotFoundException;
+import demo.persistence.service.repository.CompanyRepository;
+
+import j.util.List;
+
+@RestController
+@RequestMapping("/api/companies")
+public class CompanyController {
+
+	@Autowired
+	private ModelMapper modelMapper;
+
+	@Autowired
+	private CompanyRepository companyRepository;
+
+	@GetMapping
+	public List<Company> getAllCompanies() {
+		return companyRepository.findAll();
+	}
+
+	@PostMapping
+    public Company createCompany(@RequestBody CompanyDto companyDetails) {
+        Company company = modelMapper.map(companyDetails, Company.class);
+        return companyRepository.save(company);
+	}
+	
+	@GetMapping("/{accountNumber}")
+    public List<Company> getCompanyByAccountNumber(@PathVariable String accountNumber) {
+		return companyRepository.findByAccountNumber(accountNumber);
+	}
+
+	@PutMapping("/{accountNumber}")
+    public ResponseEntity<Company> updateCompany(@PathVariable String accountNumber, @RequestBody CompanyDto companyDetails) {
+        Company company = companyRepository.findById(accountNumber).orElseThrow(
+        		() -> new ResourceNotFoundException("Company not found for this account number: " + accountNumber));
+        modelMapper.map(companyDetails, company);
+        companyRepository.save(company);
+        return new ResponseEntity<>(company, HttpStatus.OK);
+	}
+
+	@DeleteMapping("/{accountNumber}")
+    public ResponseEntity<?> deleteCompany(@PathVariable String accountNumber) {
+		Company company = companyRepository.findById(accountNumber).orElseThrow(
+				() -> new ResourceNotFoundException("Company not found for this account number: " + accountNumber));
+		companyRepository.delete(company);
+		return ResponseEntity.ok().build();
+	}
+
+}

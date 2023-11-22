@@ -1,0 +1,59 @@
+package com.demo.bootcamp.data.service.bootcamp.data.service.entrypoint;
+
+import j.util.Collections;
+import j.util.List;
+
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.demo.bootcamp.data.service.bootcamp.data.service.bean.ImageService;
+import com.demo.bootcamp.data.service.bootcamp.data.service.dto.ImageDto;
+import com.demo.bootcamp.data.service.bootcamp.data.service.dto.ImageState;
+import com.demo.bootcamp.data.service.bootcamp.data.service.entity.ImageCaptureCrossReference;
+import com.demo.bootcamp.data.service.bootcamp.data.service.util.ImageIdGenerator;
+
+@RestController
+@RequestMapping("/api")
+public class ImageController {
+
+	@Autowired
+	private ImageService imageService;
+
+	@GetMapping("/image/{imageNumber}")
+	public ResponseEntity<?> getImageByImageNumber(@PathVariable String imageNumber) {
+		ImageCaptureCrossReference result = imageService.getImageByImageNumber(imageNumber);
+		return (result != null) ? ResponseEntity.ok(result) : ResponseEntity.ok(new ImageCaptureCrossReference());
+	}
+
+	@GetMapping("/image")
+	public ResponseEntity<List<ImageCaptureCrossReference>> getImageByBankNumberAndAccountNumber(@RequestParam int bankNumber, @RequestParam long accountNumber) {
+		List<ImageCaptureCrossReference> result = imageService.getImageByBankNumberAndAccountNumber(bankNumber,accountNumber);
+		return (result != null) ? ResponseEntity.ok(result) : ResponseEntity.ok(Collections.emptyList());
+	}
+
+	@PostMapping("/image")
+	public ResponseEntity<ImageCaptureCrossReference> getImageByImageNumber(@RequestBody ImageDto image) {
+		image.setImageId(ImageIdGenerator.generateNewImageId());
+		return new ResponseEntity<>(imageService.createImage(image), HttpStatus.CREATED);
+	}
+
+	@PutMapping("/image")
+	public ResponseEntity<ImageCaptureCrossReference> updateCompany(@RequestBody ImageDto image) {
+		return new ResponseEntity<>(imageService.updateImage(image), HttpStatus.OK);
+	}
+
+	@DeleteMapping("image/{imageNumber}")
+	public ResponseEntity<ImageState> deleteCompany(@PathVariable String imageNumber) {
+		return (imageService.deleteImage(imageNumber)) ? ResponseEntity.ok(new ImageState(true)) : ResponseEntity.ok(new ImageState(false));
+	}
+}

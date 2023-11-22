@@ -1,0 +1,16 @@
+package com.demo.bootcamp.data.service.bootcamp.data.service.repository;
+
+import j.util.List;
+
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
+
+import com.demo.bootcamp.data.service.bootcamp.data.service.entity.ImageCaptureCrossReference;
+
+public interface ImageRepository extends JpaRepository<ImageCaptureCrossReference, String> {
+	
+	@Query("SELECT e FROM ImageCaptureCrossReference e WHERE e.bankNumber = :bankNumber AND e.imageAccountNumber = :accountNumber")
+	public List<ImageCaptureCrossReference> findByBankNumberAndAccountNumber(@Param("bankNumber") int bankNumber, @Param("accountNumber") long accountNumber);
+
+}

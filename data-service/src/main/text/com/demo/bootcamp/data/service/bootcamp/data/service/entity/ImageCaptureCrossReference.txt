@@ -1,0 +1,68 @@
+package com.demo.bootcamp.data.service.bootcamp.data.service.entity;
+
+import jakarta.persistence.Column;
+import jakarta.persistence.Entity;
+import jakarta.persistence.Id;
+import jakarta.persistence.Table;
+
+@Entity
+@Table(name = "IMAGE", schema = "DBO")
+public class ImageCaptureCrossReference {
+
+	@Id
+	@Column(name = "COl1")
+	private String imageId;
+
+	@Column(name = "COl2")
+	private long imageAccountNumber;
+
+	@Column(name = "COl3")
+	private long imageApplicationNumber;
+
+	@Column(name = "COl4")
+	private String imageCustomerNumber;
+
+	@Column(name = "COl5")
+	private int bankNumber;
+
+	public String getImageId() {
+		return imageId;
+	}
+
+	public void setImageId(String imageId) {
+		this.imageId = imageId;
+	}
+
+	public long getImageAccountNumber() {
+		return imageAccountNumber;
+	}
+
+	public void setImageAccountNumber(long imageAccountNumber) {
+		this.imageAccountNumber = imageAccountNumber;
+	}
+
+	public long getImageApplicationNumber() {
+		return imageApplicationNumber;
+	}
+
+	public void setImageApplicationNumber(long imageApplicationNumber) {
+		this.imageApplicationNumber = imageApplicationNumber;
+	}
+
+	public String getImageCustomerNumber() {
+		return imageCustomerNumber;
+	}
+
+	public void setImageCustomerNumber(String imageCustomerNumber) {
+		this.imageCustomerNumber = imageCustomerNumber;
+	}
+
+	public int getBankNumber() {
+		return bankNumber;
+	}
+
+	public void setBankNumber(int bankNumber) {
+		this.bankNumber = bankNumber;
+	}
+
+}

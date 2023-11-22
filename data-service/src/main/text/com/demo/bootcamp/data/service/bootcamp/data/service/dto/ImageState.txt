@@ -1,0 +1,24 @@
+package com.demo.bootcamp.data.service.bootcamp.data.service.dto;
+
+public class ImageState {
+
+	public ImageState(Boolean isDelted) {
+		super();
+		this.isDelted = isDelted;
+	}
+
+	public ImageState() {
+		super();
+	}
+
+	private Boolean isDelted;
+
+	public Boolean getIsDelted() {
+		return isDelted;
+	}
+
+	public void setIsDelted(Boolean isDelted) {
+		this.isDelted = isDelted;
+	}
+	
+}
