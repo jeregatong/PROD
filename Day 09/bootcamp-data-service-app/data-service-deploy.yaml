@@ -1,0 +1,41 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: data-service-deployment
+  namespace: bootcamp
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: data-service
+  template:
+    metadata:
+      labels:
+        app: data-service
+    spec:
+      containers:
+      - name: data-service-container
+        image: docker.io/jeregatong/data-service:0.3.3
+        ports:
+        - containerPort: 8080
+        envFrom:
+        - configMapRef:
+            name: my-app-config
+        env:
+        - name: SPRING_DATASOURCE_PASSWORD
+          valueFrom:
+            secretKeyRef:
+              name: my-app-secrets
+              key: spring.datasource.password
+        - name: SPRING_DATASOURCE_USERNAME
+          valueFrom:
+            secretKeyRef:
+              name: my-app-secrets
+              key: spring.datasource.username
+        volumeMounts:
+        - name: data-volume
+          mountPath: /mnt/shared/bootcamp
+      volumes: 
+      - name: data-volume
+        persistentVolumeClaim:
+          claimName: bootcamp-nfs-pvc

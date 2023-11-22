@@ -1,0 +1,15 @@
+apiVersion: route.openshift.io/v1
+kind: Route
+metadata:
+  name: data-service-route
+  namespace: bootcamp
+spec:
+  host: data.service.apps.evo.cbs.fiserv.net
+  to:
+    kind: Service
+    name: data-service-service
+    weight: 100
+  port:
+    targetPort: 8080
+  wildcardPolicy: None
+
