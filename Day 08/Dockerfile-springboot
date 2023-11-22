@@ -1,0 +1,12 @@
+# Official Images for OpenJDK binaries built by Eclipse Temurin
+FROM winamd64/eclipse-temurin
+
+# Arguments to pass the jar file name during docker build
+ARG JAR_FILE=target/*.jar
+
+# Copy the JAR into the image
+COPY demo-persistence-servicer-0.0.1-SNAPSHOT.jar demo-persistence-service.jar
+
+EXPOSE 8080
+
+ENTRYPOINT ["java", "-Dspring.datasource.url=jdbc:sqlserver://192.168.1.5:1433;databaseName=X_Y_BDOP3QA;encrypt=false;trustServerCertificate=true", "-jar", "/demo-persistence-service.jar"]
